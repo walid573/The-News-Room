@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
@@ -30,20 +31,7 @@ const Header = () => {
         </Link>
 
         {/* Right: auth buttons */}
-        <div className="flex items-center justify-end gap-3 text-sm">
-          <Link
-            href="/signin"
-            className="text-neutral-700 transition-colors hover:text-red-700"
-          >
-            সাইন ইন
-          </Link>
-          <Link
-            href="/signup"
-            className="rounded bg-red-700 px-4 py-2 font-semibold text-white transition-colors hover:bg-red-800"
-          >
-            সাইন আপ
-          </Link>
-        </div>
+       <UserInfo/>
       </div>
 
       <NavLinks />
