@@ -9,7 +9,9 @@ interface Headlines {
 
 
 const Marquee = async() => {
-    const res = await fetch('https://news-api-v2.vercel.app/api/news?limit=10');
+    const res = await fetch('https://news-api-v2.vercel.app/api/news?limit=10', {
+        next: { revalidate: 60 },
+    });
     const data = await res.json();
     const headlines:Headlines[] = data.data
  

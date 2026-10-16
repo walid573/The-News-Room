@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import UserInfo from "./UserInfo";
+import CurrentDate from "./CurrentDate";
 
 const Header = () => {
-  const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
 
   return (
     <header className="relative mx-auto w-full max-w-7xl px-4 py-4">
@@ -26,7 +26,7 @@ const Header = () => {
             <span className="font-serif text-2xl font-bold text-red-700">
               Bangla News 24
             </span>
-            <span className="text-xs text-neutral-500">{date}</span>
+            <CurrentDate />
           </div>
         </Link>
 

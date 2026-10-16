@@ -8,7 +8,9 @@ interface MostReadNews {
 }
 
 const MostRead = async() => {
-    const res = await fetch('https://news-api-v2.vercel.app/api/news/most-read');
+    const res = await fetch('https://news-api-v2.vercel.app/api/news/most-read', {
+        next: { revalidate: 60 },
+    });
     const data = await res.json()
     const news:MostReadNews[] = data.data
     console.log(data);

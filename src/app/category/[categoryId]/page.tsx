@@ -12,11 +12,15 @@ interface CatergoryNew {
     imageAlt: string
 }
 
+export const revalidate = 60;
+
 
 
 const CategoryNews = async ({params}: {params:CatergoryNew}) => {
     const {categoryId} = await params
-    const res = await fetch(`https://news-api-v2.vercel.app/api/category/${categoryId}`);
+    const res = await fetch(`https://news-api-v2.vercel.app/api/category/${categoryId}`, {
+        next: { revalidate: 60 },
+    });
     const data = await res.json();
     const categoryNews:CatergoryNew[] = data.data
     if(!categoryNews){
